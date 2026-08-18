@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hy">
+
 <head>
 <meta charset="UTF-8">
 
@@ -32,6 +33,8 @@ body {
         "DejaVu Serif",
         Georgia,
         serif;
+
+    color: #2b2119;
 }
 
 
@@ -48,7 +51,6 @@ body {
     align-items: center;
 
     position: relative;
-
     overflow: hidden;
 
     padding: 24px;
@@ -56,20 +58,20 @@ body {
 
 
 /* =========================
-   ENVELOPE WRAPPER
+   SCENE
 ========================= */
 
-.envelope-scene {
+.scene {
     position: relative;
 
-    width: min(88vw, 720px);
-    height: min(78vh, 720px);
+    width: min(92vw, 760px);
+    height: min(92vh, 900px);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    perspective: 1400px;
+    perspective: 1600px;
 }
 
 
@@ -80,11 +82,11 @@ body {
 .envelope {
     position: absolute;
 
-    width: 78%;
-    aspect-ratio: 1.48 / 1;
-
     left: 50%;
-    bottom: 6%;
+    bottom: 8%;
+
+    width: 76%;
+    aspect-ratio: 1.5 / 1;
 
     transform: translateX(-50%);
 
@@ -92,18 +94,17 @@ body {
 }
 
 
-/* ENVELOPE BACK */
+/* BACK */
 
 .envelope-back {
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
             145deg,
-            #c69a67,
-            #a97849
+            #c69b69,
+            #aa7a4c
         );
 
     border-radius: 4px;
@@ -115,14 +116,13 @@ body {
 }
 
 
-/* LEFT SIDE */
+/* LEFT FOLD */
 
 .envelope-left {
     position: absolute;
-
     inset: 0;
 
-    background: #bd8c59;
+    background: #bd8d5a;
 
     clip-path:
         polygon(
@@ -135,11 +135,10 @@ body {
 }
 
 
-/* RIGHT SIDE */
+/* RIGHT FOLD */
 
 .envelope-right {
     position: absolute;
-
     inset: 0;
 
     background: #b98250;
@@ -155,11 +154,10 @@ body {
 }
 
 
-/* LOWER FRONT */
+/* BOTTOM FOLD */
 
 .envelope-bottom {
     position: absolute;
-
     inset: 0;
 
     background: #cc9d69;
@@ -189,8 +187,8 @@ body {
     background:
         linear-gradient(
             160deg,
-            #c99a66,
-            #ac7949
+            #cb9c69,
+            #ad7a4a
         );
 
     clip-path:
@@ -204,54 +202,55 @@ body {
 
     z-index: 7;
 
-    animation:
-        openFlap 0.9s ease forwards;
-
-    animation-delay: .45s;
+    animation: openFlap 1.8s ease forwards;
+    animation-delay: 1s;
 }
 
 
 /* =========================
-   CARD
+   INVITATION CARD
 ========================= */
 
 .card {
     position: absolute;
 
     left: 50%;
-    bottom: 10%;
+    bottom: 7%;
 
-    width: min(78%, 620px);
+    width: min(78%, 640px);
+
+    opacity: 0;
 
     transform:
         translateX(-50%)
-        translateY(30%)
-        scale(.72);
-
-    opacity: 0;
+        translateY(34%)
+        scale(.70);
 
     z-index: 3;
 
     animation:
-        cardRise 2.25s cubic-bezier(.22,.78,.20,1) forwards;
+        cardRise 3.4s
+        cubic-bezier(.22,.78,.20,1)
+        forwards;
 
-    animation-delay: 1.15s;
+    animation-delay: 2.4s;
 }
 
 
 .card-front {
     position: relative;
-
     width: 100%;
 
-    background: #eee5d6;
-
     box-shadow:
-        0 18px 50px rgba(0,0,0,.18);
+        0 20px 55px rgba(0,0,0,.18);
 }
 
 
-.invitation-bg {
+/* IMPORTANT:
+   YOUR NEW IMAGE IS Qish.png
+*/
+
+.Qish {
     display: block;
 
     width: 100%;
@@ -260,7 +259,7 @@ body {
 
 
 /* =========================
-   TEXT OVERLAY
+   ARMENIAN HTML TEXT
 ========================= */
 
 .invitation-text {
@@ -320,7 +319,9 @@ body {
     display: grid;
 
     grid-template-columns:
-        1fr auto 1fr;
+        1fr
+        auto
+        1fr;
 
     align-items: center;
 
@@ -395,7 +396,7 @@ body {
 
 
 /* =========================
-   VENUE / ADDRESS / SIGNATURE
+   VENUE
 ========================= */
 
 .venue {
@@ -406,6 +407,10 @@ body {
 }
 
 
+/* =========================
+   ADDRESS
+========================= */
+
 .address {
     margin-top: 1.2%;
 
@@ -415,6 +420,10 @@ body {
     white-space: nowrap;
 }
 
+
+/* =========================
+   SIGNATURE
+========================= */
 
 .signature {
     margin-top: auto;
@@ -427,7 +436,7 @@ body {
 
 
 /* =========================
-   MUSIC
+   MUSIC BUTTON
 ========================= */
 
 .music-button {
@@ -465,7 +474,7 @@ body {
 
 
 /* =========================
-   ANIMATION
+   ENVELOPE OPENING
 ========================= */
 
 @keyframes openFlap {
@@ -482,6 +491,10 @@ body {
 }
 
 
+/* =========================
+   CARD COMES OUT
+========================= */
+
 @keyframes cardRise {
 
     0% {
@@ -489,36 +502,59 @@ body {
 
         transform:
             translateX(-50%)
-            translateY(30%)
-            scale(.72);
+            translateY(34%)
+            scale(.70);
 
         z-index: 3;
     }
 
-    18% {
+
+    12% {
         opacity: 1;
     }
 
-    55% {
+
+    /* CARD RISES FROM INSIDE */
+
+    48% {
+
         transform:
             translateX(-50%)
-            translateY(-55%)
+            translateY(-58%)
             scale(.84);
 
         z-index: 3;
     }
 
-    56% {
+
+    /* CARD NOW MOVES IN FRONT */
+
+    49% {
         z-index: 20;
     }
 
+
+    76% {
+
+        transform:
+            translateX(-50%)
+            translateY(-35%)
+            scale(.96);
+
+        z-index: 20;
+    }
+
+
+    /* FINAL POSITION */
+
     100% {
+
         opacity: 1;
 
         transform:
             translateX(-50%)
-            translateY(-20%)
-            scale(1.03);
+            translateY(-19%)
+            scale(1.02);
 
         z-index: 20;
     }
@@ -538,21 +574,21 @@ body {
     }
 
 
-    .envelope-scene {
+    .scene {
         width: 100vw;
         height: 100vh;
     }
 
 
     .envelope {
-        width: 82%;
-        bottom: 9%;
+        width: 86%;
+        bottom: 8%;
     }
 
 
     .card {
-        width: 82%;
-        bottom: 8%;
+        width: 88%;
+        bottom: 7%;
     }
 
 
@@ -589,49 +625,61 @@ body {
 }
 
 
-/* SMALL PHONES */
+/* =========================
+   SMALL PHONES
+========================= */
 
 @media (max-width: 420px) {
 
     .card {
-        width: 88%;
+        width: 91%;
     }
 
+
     .envelope {
-        width: 88%;
+        width: 91%;
     }
+
 
     .invitation-title {
         font-size: 21px;
     }
 
+
     .invitation-message {
         font-size: 10.5px;
     }
+
 
     .date-side {
         font-size: 9.5px;
     }
 
+
     .day-number {
         font-size: 39px;
     }
+
 
     .month {
         font-size: 9.5px;
     }
 
+
     .year {
         font-size: 9px;
     }
+
 
     .venue {
         font-size: 10.5px;
     }
 
+
     .address {
         font-size: 9px;
     }
+
 
     .signature {
         font-size: 18px;
@@ -640,6 +688,7 @@ body {
 }
 
 </style>
+
 </head>
 
 
@@ -649,10 +698,12 @@ body {
 <div class="stage">
 
 
-    <div class="envelope-scene">
+    <div class="scene">
 
 
-        <!-- ENVELOPE -->
+        <!-- =====================
+             ENVELOPE
+        ====================== -->
 
         <div class="envelope">
 
@@ -669,28 +720,41 @@ body {
         </div>
 
 
-        <!-- CARD -->
+
+        <!-- =====================
+             INVITATION CARD
+        ====================== -->
 
         <div class="card">
+
 
             <div class="card-front">
 
 
+                <!-- NEW IMAGE -->
+
                 <img
                     class="invitation-bg"
-                    src="./invitation-bg.png"
+                    src="./qisho.png"
                     alt="70th Birthday Invitation"
                 >
 
 
-                <!-- YOUR ARMENIAN HTML TEXT -->
+
+                <!-- =====================
+                     REAL ARMENIAN TEXT
+                     NOT PART OF IMAGE
+                ====================== -->
 
                 <div class="invitation-text">
 
 
                     <div class="invitation-title">
+
                         Սիրելի բարեկամ,
+
                     </div>
+
 
 
                     <div class="invitation-message">
@@ -702,55 +766,82 @@ body {
                     </div>
 
 
+
+                    <!-- DATE -->
+
                     <div class="date-row">
 
 
+                        <!-- MONDAY -->
+
                         <div class="date-side">
 
                             <div class="horizontal-line"></div>
 
                             <div>
+
                                 Երկուշաբթի
+
                             </div>
 
                             <div class="horizontal-line"></div>
 
                         </div>
 
+
+
+                        <!-- CENTER DATE -->
 
                         <div class="date-center">
 
+
                             <div class="vertical-line"></div>
 
 
                             <div>
 
+
                                 <div class="day-number">
+
                                     5
+
                                 </div>
+
 
                                 <div class="month">
+
                                     Հոկտեմբեր
+
                                 </div>
 
+
                                 <div class="year">
+
                                     2026
+
                                 </div>
+
 
                             </div>
 
 
                             <div class="vertical-line"></div>
 
+
                         </div>
 
+
+
+                        <!-- TIME -->
 
                         <div class="date-side">
 
                             <div class="horizontal-line"></div>
 
                             <div>
+
                                 18։00
+
                             </div>
 
                             <div class="horizontal-line"></div>
@@ -761,18 +852,33 @@ body {
                     </div>
 
 
+
+                    <!-- VENUE -->
+
                     <div class="venue">
+
                         «Մկրտչյանս Հոլլ» Սրահում
+
                     </div>
 
+
+
+                    <!-- ADDRESS -->
 
                     <div class="address">
+
                         Ք․ Մասիս, Էջմիածնի խճուղի 2/10
+
                     </div>
 
 
+
+                    <!-- SIGNATURE -->
+
                     <div class="signature">
+
                         Սիրով Ձեր՝ Քիշո
+
                     </div>
 
 
@@ -780,6 +886,7 @@ body {
 
 
             </div>
+
 
         </div>
 
@@ -790,26 +897,39 @@ body {
 </div>
 
 
+
+<!-- =====================
+     MUSIC
+====================== -->
+
 <audio
     id="bgMusic"
     autoplay
     loop
     preload="auto"
 >
+
     <source
         src="./music.mp3"
         type="audio/mpeg"
     >
+
 </audio>
 
+
+
+<!-- MUSIC BUTTON -->
 
 <button
     class="music-button"
     id="musicButton"
     aria-label="Play or pause music"
 >
+
     ♪
+
 </button>
+
 
 
 <script>
@@ -820,22 +940,41 @@ const music =
 const musicButton =
     document.getElementById("musicButton");
 
+
 music.volume = 0.7;
 
+
+
+/* =========================
+   TRY TO PLAY MUSIC
+   AS SOON AS PAGE OPENS
+========================= */
 
 function tryAutoplay() {
 
     const attempt = music.play();
 
+
     if (attempt !== undefined) {
 
         attempt
+
             .then(function () {
 
                 musicButton.innerHTML = "❚❚";
 
             })
+
+
             .catch(function () {
+
+                /*
+                Some phones, especially iPhone,
+                block automatic sound.
+
+                In that case the music button
+                remains available.
+                */
 
                 musicButton.innerHTML = "♪";
 
@@ -846,10 +985,12 @@ function tryAutoplay() {
 }
 
 
+
 document.addEventListener(
     "DOMContentLoaded",
     tryAutoplay
 );
+
 
 
 window.addEventListener(
@@ -858,9 +999,15 @@ window.addEventListener(
 );
 
 
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
 musicButton.addEventListener(
     "click",
     function () {
+
 
         if (music.paused) {
 
@@ -870,6 +1017,7 @@ musicButton.addEventListener(
 
         }
 
+
         else {
 
             music.pause();
@@ -877,6 +1025,7 @@ musicButton.addEventListener(
             musicButton.innerHTML = "♪";
 
         }
+
 
     }
 );
