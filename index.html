@@ -25,7 +25,6 @@ body {
 
 body {
     background: #e9e1d6;
-    overflow-x: hidden;
 
     font-family:
         "Sylfaen",
@@ -35,6 +34,8 @@ body {
         serif;
 
     color: #2b2119;
+
+    overflow-x: hidden;
 }
 
 
@@ -44,6 +45,7 @@ body {
 
 .stage {
     width: 100%;
+
     min-height: 100vh;
 
     display: flex;
@@ -51,9 +53,10 @@ body {
     align-items: center;
 
     position: relative;
-    overflow: hidden;
 
-    padding: 24px;
+    padding: 30px 20px;
+
+    overflow: visible;
 }
 
 
@@ -65,13 +68,16 @@ body {
     position: relative;
 
     width: min(92vw, 760px);
-    height: min(92vh, 900px);
+
+    min-height: 900px;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     perspective: 1600px;
+
+    overflow: visible;
 }
 
 
@@ -83,12 +89,13 @@ body {
     position: absolute;
 
     left: 50%;
-    bottom: 8%;
+    top: 50%;
 
     width: 76%;
     aspect-ratio: 1.5 / 1;
 
-    transform: translateX(-50%);
+    transform:
+        translate(-50%, -10%);
 
     z-index: 2;
 }
@@ -98,6 +105,7 @@ body {
 
 .envelope-back {
     position: absolute;
+
     inset: 0;
 
     background:
@@ -107,8 +115,6 @@ body {
             #aa7a4c
         );
 
-    border-radius: 4px;
-
     box-shadow:
         0 22px 50px rgba(0,0,0,.20);
 
@@ -116,10 +122,11 @@ body {
 }
 
 
-/* LEFT FOLD */
+/* LEFT */
 
 .envelope-left {
     position: absolute;
+
     inset: 0;
 
     background: #bd8d5a;
@@ -135,10 +142,11 @@ body {
 }
 
 
-/* RIGHT FOLD */
+/* RIGHT */
 
 .envelope-right {
     position: absolute;
+
     inset: 0;
 
     background: #b98250;
@@ -154,10 +162,11 @@ body {
 }
 
 
-/* BOTTOM FOLD */
+/* BOTTOM */
 
 .envelope-bottom {
     position: absolute;
+
     inset: 0;
 
     background: #cc9d69;
@@ -202,34 +211,35 @@ body {
 
     z-index: 7;
 
-    animation: openFlap 1.8s ease forwards;
+    animation:
+        openFlap 1.8s ease forwards;
+
     animation-delay: 1s;
 }
 
 
 /* =========================
-   INVITATION CARD
+   CARD
 ========================= */
 
 .card {
     position: absolute;
 
     left: 50%;
-    bottom: 7%;
+    top: 50%;
 
     width: min(78%, 640px);
 
     opacity: 0;
 
     transform:
-        translateX(-50%)
-        translateY(34%)
+        translate(-50%, 5%)
         scale(.70);
 
     z-index: 3;
 
     animation:
-        cardRise 3.4s
+        cardRise 3.8s
         cubic-bezier(.22,.78,.20,1)
         forwards;
 
@@ -239,18 +249,15 @@ body {
 
 .card-front {
     position: relative;
+
     width: 100%;
 
     box-shadow:
-        0 20px 55px rgba(0,0,0,.18);
+        0 20px 55px rgba(0,0,0,.20);
 }
 
 
-/* IMPORTANT:
-   YOUR NEW IMAGE IS Qish.png
-*/
-
-.Qish {
+.invitation-bg {
     display: block;
 
     width: 100%;
@@ -259,7 +266,7 @@ body {
 
 
 /* =========================
-   ARMENIAN HTML TEXT
+   TEXT
 ========================= */
 
 .invitation-text {
@@ -396,7 +403,7 @@ body {
 
 
 /* =========================
-   VENUE
+   VENUE / ADDRESS
 ========================= */
 
 .venue {
@@ -406,10 +413,6 @@ body {
         clamp(13px, 2.2vw, 20px);
 }
 
-
-/* =========================
-   ADDRESS
-========================= */
 
 .address {
     margin-top: 1.2%;
@@ -436,7 +439,7 @@ body {
 
 
 /* =========================
-   MUSIC BUTTON
+   MUSIC
 ========================= */
 
 .music-button {
@@ -474,7 +477,7 @@ body {
 
 
 /* =========================
-   ENVELOPE OPENING
+   ANIMATIONS
 ========================= */
 
 @keyframes openFlap {
@@ -485,15 +488,15 @@ body {
 
     100% {
         transform: rotateX(180deg);
+
         z-index: 0;
     }
 
 }
 
 
-/* =========================
-   CARD COMES OUT
-========================= */
+/* CARD STARTS INSIDE ENVELOPE
+   THEN COMES COMPLETELY FORWARD */
 
 @keyframes cardRise {
 
@@ -501,8 +504,7 @@ body {
         opacity: 0;
 
         transform:
-            translateX(-50%)
-            translateY(34%)
+            translate(-50%, 10%)
             scale(.70);
 
         z-index: 3;
@@ -514,47 +516,35 @@ body {
     }
 
 
-    /* CARD RISES FROM INSIDE */
-
     48% {
-
         transform:
-            translateX(-50%)
-            translateY(-58%)
-            scale(.84);
+            translate(-50%, -38%)
+            scale(.82);
 
         z-index: 3;
     }
 
-
-    /* CARD NOW MOVES IN FRONT */
 
     49% {
         z-index: 20;
     }
 
 
-    76% {
-
+    70% {
         transform:
-            translateX(-50%)
-            translateY(-35%)
-            scale(.96);
+            translate(-50%, -22%)
+            scale(.92);
 
         z-index: 20;
     }
 
 
-    /* FINAL POSITION */
-
     100% {
-
         opacity: 1;
 
         transform:
-            translateX(-50%)
-            translateY(-19%)
-            scale(1.02);
+            translate(-50%, -15%)
+            scale(1);
 
         z-index: 20;
     }
@@ -568,27 +558,45 @@ body {
 
 @media (max-width: 768px) {
 
+    body {
+        overflow-y: auto;
+    }
+
+
     .stage {
         min-height: 100vh;
-        padding: 0;
+
+        padding:
+            20px
+            0
+            80px;
+
+        align-items: flex-start;
+
+        overflow: visible;
     }
 
 
     .scene {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+
+        min-height: 760px;
+
+        overflow: visible;
     }
 
 
     .envelope {
         width: 86%;
-        bottom: 8%;
+
+        top: 310px;
     }
 
 
     .card {
         width: 88%;
-        bottom: 7%;
+
+        top: 310px;
     }
 
 
@@ -603,6 +611,7 @@ body {
 
     .vertical-line {
         height: 54px;
+
         margin: 0 7px;
     }
 
@@ -631,13 +640,22 @@ body {
 
 @media (max-width: 420px) {
 
-    .card {
-        width: 91%;
+    .scene {
+        min-height: 700px;
     }
 
 
     .envelope {
         width: 91%;
+
+        top: 270px;
+    }
+
+
+    .card {
+        width: 91%;
+
+        top: 270px;
     }
 
 
@@ -688,7 +706,6 @@ body {
 }
 
 </style>
-
 </head>
 
 
@@ -697,13 +714,10 @@ body {
 
 <div class="stage">
 
-
     <div class="scene">
 
 
-        <!-- =====================
-             ENVELOPE
-        ====================== -->
+        <!-- ENVELOPE -->
 
         <div class="envelope">
 
@@ -721,17 +735,12 @@ body {
 
 
 
-        <!-- =====================
-             INVITATION CARD
-        ====================== -->
+        <!-- CARD -->
 
         <div class="card">
 
-
             <div class="card-front">
 
-
-                <!-- NEW IMAGE -->
 
                 <img
                     class="invitation-bg"
@@ -741,10 +750,7 @@ body {
 
 
 
-                <!-- =====================
-                     REAL ARMENIAN TEXT
-                     NOT PART OF IMAGE
-                ====================== -->
+                <!-- HTML TEXT -->
 
                 <div class="invitation-text">
 
@@ -754,7 +760,6 @@ body {
                         Սիրելի բարեկամ,
 
                     </div>
-
 
 
                     <div class="invitation-message">
@@ -767,21 +772,15 @@ body {
 
 
 
-                    <!-- DATE -->
-
                     <div class="date-row">
 
-
-                        <!-- MONDAY -->
 
                         <div class="date-side">
 
                             <div class="horizontal-line"></div>
 
                             <div>
-
                                 Երկուշաբթի
-
                             </div>
 
                             <div class="horizontal-line"></div>
@@ -789,8 +788,6 @@ body {
                         </div>
 
 
-
-                        <!-- CENTER DATE -->
 
                         <div class="date-center">
 
@@ -800,27 +797,17 @@ body {
 
                             <div>
 
-
                                 <div class="day-number">
-
                                     5
-
                                 </div>
-
 
                                 <div class="month">
-
                                     Հոկտեմբեր
-
                                 </div>
-
 
                                 <div class="year">
-
                                     2026
-
                                 </div>
-
 
                             </div>
 
@@ -832,16 +819,12 @@ body {
 
 
 
-                        <!-- TIME -->
-
                         <div class="date-side">
 
                             <div class="horizontal-line"></div>
 
                             <div>
-
                                 18։00
-
                             </div>
 
                             <div class="horizontal-line"></div>
@@ -853,8 +836,6 @@ body {
 
 
 
-                    <!-- VENUE -->
-
                     <div class="venue">
 
                         «Մկրտչյանս Հոլլ» Սրահում
@@ -863,8 +844,6 @@ body {
 
 
 
-                    <!-- ADDRESS -->
-
                     <div class="address">
 
                         Ք․ Մասիս, Էջմիածնի խճուղի 2/10
@@ -872,8 +851,6 @@ body {
                     </div>
 
 
-
-                    <!-- SIGNATURE -->
 
                     <div class="signature">
 
@@ -887,20 +864,14 @@ body {
 
             </div>
 
-
         </div>
 
 
     </div>
 
-
 </div>
 
 
-
-<!-- =====================
-     MUSIC
-====================== -->
 
 <audio
     id="bgMusic"
@@ -917,8 +888,6 @@ body {
 </audio>
 
 
-
-<!-- MUSIC BUTTON -->
 
 <button
     class="music-button"
@@ -940,15 +909,9 @@ const music =
 const musicButton =
     document.getElementById("musicButton");
 
-
 music.volume = 0.7;
 
 
-
-/* =========================
-   TRY TO PLAY MUSIC
-   AS SOON AS PAGE OPENS
-========================= */
 
 function tryAutoplay() {
 
@@ -965,16 +928,7 @@ function tryAutoplay() {
 
             })
 
-
             .catch(function () {
-
-                /*
-                Some phones, especially iPhone,
-                block automatic sound.
-
-                In that case the music button
-                remains available.
-                */
 
                 musicButton.innerHTML = "♪";
 
@@ -992,7 +946,6 @@ document.addEventListener(
 );
 
 
-
 window.addEventListener(
     "load",
     tryAutoplay
@@ -1000,14 +953,9 @@ window.addEventListener(
 
 
 
-/* =========================
-   MUSIC BUTTON
-========================= */
-
 musicButton.addEventListener(
     "click",
     function () {
-
 
         if (music.paused) {
 
@@ -1017,7 +965,6 @@ musicButton.addEventListener(
 
         }
 
-
         else {
 
             music.pause();
@@ -1026,7 +973,6 @@ musicButton.addEventListener(
 
         }
 
-
     }
 );
 
@@ -1034,5 +980,4 @@ musicButton.addEventListener(
 
 
 </body>
-
 </html>
