@@ -45,9 +45,9 @@ body {
 }
 
 
-/* =========================
-   BACKGROUND DECORATION
-========================= */
+/* ========================================
+   BACKGROUND DECORATIONS
+======================================== */
 
 .decor {
     position: fixed;
@@ -75,7 +75,7 @@ body {
 }
 
 
-/* STEM */
+/* BRANCH STEM */
 
 .branch {
     position: absolute;
@@ -95,7 +95,7 @@ body {
 }
 
 
-/* LEAF */
+/* LEAVES */
 
 .leaf {
     position: absolute;
@@ -134,6 +134,7 @@ body {
 
 .sprig::before,
 .sprig::after {
+
     content: "";
 
     position: absolute;
@@ -155,20 +156,25 @@ body {
 
 
 .sprig::before {
+
     left: -6px;
+
     transform: rotate(-28deg);
 }
 
 
 .sprig::after {
+
     right: -6px;
+
     transform: rotate(28deg);
 }
 
 
-/* LEFT DECOR GROUPS */
+/* LEFT DECORATION POSITIONS */
 
 .decor-left .b1 {
+
     left: 24px;
     top: 50px;
 
@@ -179,6 +185,7 @@ body {
 
 
 .decor-left .b2 {
+
     left: 65px;
     top: 520px;
 
@@ -189,6 +196,7 @@ body {
 
 
 .decor-left .b3 {
+
     left: 28px;
     bottom: 60px;
 
@@ -199,6 +207,7 @@ body {
 
 
 .decor-left .s1 {
+
     left: 88px;
     top: 22px;
 
@@ -209,6 +218,7 @@ body {
 
 
 .decor-left .s2 {
+
     left: 105px;
     top: 455px;
 
@@ -219,6 +229,7 @@ body {
 
 
 .decor-left .s3 {
+
     left: 90px;
     bottom: 30px;
 
@@ -228,28 +239,93 @@ body {
 }
 
 
-/* LEAVES */
+/* LEAF POSITIONS */
 
-.l1 { left: 2px; top: 48px; transform: rotate(-35deg); }
-.l2 { left: 5px; top: 86px; transform: rotate(-22deg); }
-.l3 { left: 10px; top: 128px; transform: rotate(-10deg); }
-.l4 { left: 14px; top: 170px; transform: rotate(5deg); }
-.l5 { left: 18px; top: 212px; transform: rotate(20deg); }
+.l1 {
+    left: 2px;
+    top: 48px;
+    transform: rotate(-35deg);
+}
 
-.l6 { left: 70px; top: 540px; transform: rotate(145deg); }
-.l7 { left: 70px; top: 582px; transform: rotate(160deg); }
-.l8 { left: 68px; top: 625px; transform: rotate(175deg); }
-.l9 { left: 64px; top: 668px; transform: rotate(190deg); }
+.l2 {
+    left: 5px;
+    top: 86px;
+    transform: rotate(-22deg);
+}
 
-.l10 { left: 6px; bottom: 230px; transform: rotate(-28deg); }
-.l11 { left: 10px; bottom: 185px; transform: rotate(-12deg); }
-.l12 { left: 13px; bottom: 140px; transform: rotate(4deg); }
-.l13 { left: 16px; bottom: 95px; transform: rotate(20deg); }
+.l3 {
+    left: 10px;
+    top: 128px;
+    transform: rotate(-10deg);
+}
+
+.l4 {
+    left: 14px;
+    top: 170px;
+    transform: rotate(5deg);
+}
+
+.l5 {
+    left: 18px;
+    top: 212px;
+    transform: rotate(20deg);
+}
+
+
+.l6 {
+    left: 70px;
+    top: 540px;
+    transform: rotate(145deg);
+}
+
+.l7 {
+    left: 70px;
+    top: 582px;
+    transform: rotate(160deg);
+}
+
+.l8 {
+    left: 68px;
+    top: 625px;
+    transform: rotate(175deg);
+}
+
+.l9 {
+    left: 64px;
+    top: 668px;
+    transform: rotate(190deg);
+}
+
+
+.l10 {
+    left: 6px;
+    bottom: 230px;
+    transform: rotate(-28deg);
+}
+
+.l11 {
+    left: 10px;
+    bottom: 185px;
+    transform: rotate(-12deg);
+}
+
+.l12 {
+    left: 13px;
+    bottom: 140px;
+    transform: rotate(4deg);
+}
+
+.l13 {
+    left: 16px;
+    bottom: 95px;
+    transform: rotate(20deg);
+}
 
 
 /* GOLD SPECKLES */
 
 .speckles {
+
     position: fixed;
 
     inset: 0;
@@ -259,8 +335,16 @@ body {
     pointer-events: none;
 
     background-image:
-        radial-gradient(circle, rgba(184,139,69,.55) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(184,139,69,.35) 1px, transparent 1.5px);
+        radial-gradient(
+            circle,
+            rgba(184,139,69,.55) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(184,139,69,.35) 1px,
+            transparent 1.5px
+        );
 
     background-size:
         90px 110px,
@@ -274,17 +358,20 @@ body {
 }
 
 
-/* =========================
+/* ========================================
    STAGE
-========================= */
+======================================== */
 
 .stage {
+
     width: 100%;
 
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     position: relative;
@@ -297,11 +384,12 @@ body {
 }
 
 
-/* =========================
+/* ========================================
    SCENE
-========================= */
+======================================== */
 
 .scene {
+
     position: relative;
 
     width: min(92vw, 760px);
@@ -309,7 +397,9 @@ body {
     min-height: 900px;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     perspective: 1600px;
@@ -318,17 +408,20 @@ body {
 }
 
 
-/* =========================
+/* ========================================
    ENVELOPE
-========================= */
+======================================== */
 
 .envelope {
+
     position: absolute;
 
     left: 50%;
+
     top: 50%;
 
     width: 76%;
+
     aspect-ratio: 1.5 / 1;
 
     transform:
@@ -338,7 +431,10 @@ body {
 }
 
 
+/* ENVELOPE BACK */
+
 .envelope-back {
+
     position: absolute;
 
     inset: 0;
@@ -357,7 +453,10 @@ body {
 }
 
 
+/* LEFT FOLD */
+
 .envelope-left {
+
     position: absolute;
 
     inset: 0;
@@ -375,7 +474,10 @@ body {
 }
 
 
+/* RIGHT FOLD */
+
 .envelope-right {
+
     position: absolute;
 
     inset: 0;
@@ -393,7 +495,10 @@ body {
 }
 
 
+/* BOTTOM FOLD */
+
 .envelope-bottom {
+
     position: absolute;
 
     inset: 0;
@@ -411,11 +516,16 @@ body {
 }
 
 
+/* ENVELOPE FLAP */
+
 .envelope-flap {
+
     position: absolute;
 
     left: 0;
+
     right: 0;
+
     top: 0;
 
     height: 58%;
@@ -445,14 +555,16 @@ body {
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* ========================================
+   INVITATION CARD
+======================================== */
 
 .card {
+
     position: absolute;
 
     left: 50%;
+
     top: 50%;
 
     width: min(78%, 640px);
@@ -475,6 +587,7 @@ body {
 
 
 .card-front {
+
     position: relative;
 
     width: 100%;
@@ -485,28 +598,40 @@ body {
 
 
 .invitation-bg {
+
     display: block;
 
     width: 100%;
+
     height: auto;
 }
 
 
-/* =========================
-   HTML TEXT
-========================= */
+/* ========================================
+   INVITATION TEXT
+======================================== */
 
 .invitation-text {
+
     position: absolute;
 
     left: 10%;
+
     right: 10%;
 
-    top: 55%;
-    bottom: 5%;
+    /*
+       MOVED UP SLIGHTLY
+       TO KEEP SIGNATURE INSIDE CARD
+    */
+
+    top: 54%;
+
+    bottom: 8%;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     text-align: center;
@@ -517,31 +642,40 @@ body {
 }
 
 
+/* TITLE */
+
 .invitation-title {
+
     font-size:
         clamp(24px, 4.4vw, 43px);
 
     font-weight: 400;
 
-    margin-bottom: 4%;
+    margin-bottom: 3%;
 }
 
 
+/* MESSAGE */
+
 .invitation-message {
+
     width: 95%;
 
     font-size:
         clamp(13px, 2.2vw, 21px);
 
-    line-height: 1.45;
+    line-height: 1.4;
 
-    margin-bottom: 4%;
+    margin-bottom: 3%;
 }
 
 
-/* DATE */
+/* ========================================
+   DATE
+======================================== */
 
 .date-row {
+
     width: 100%;
 
     display: grid;
@@ -555,13 +689,16 @@ body {
 
     gap: 4%;
 
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 
 .date-side {
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     gap: 8px;
@@ -572,7 +709,9 @@ body {
 
 
 .horizontal-line {
+
     width: 100%;
+
     height: 1px;
 
     background:
@@ -581,14 +720,18 @@ body {
 
 
 .date-center {
+
     display: flex;
+
     align-items: center;
 }
 
 
 .vertical-line {
+
     width: 1px;
-    height: 80px;
+
+    height: 76px;
 
     background:
         rgba(55,42,30,.55);
@@ -598,7 +741,10 @@ body {
 
 
 .day-number {
-    font-family: Georgia, serif;
+
+    font-family:
+        Georgia,
+        serif;
 
     font-size:
         clamp(45px, 7vw, 68px);
@@ -608,7 +754,8 @@ body {
 
 
 .month {
-    margin-top: 7px;
+
+    margin-top: 6px;
 
     font-size:
         clamp(12px, 2vw, 18px);
@@ -616,27 +763,34 @@ body {
 
 
 .year {
-    margin-top: 3px;
+
+    margin-top: 2px;
 
     font-size:
         clamp(11px, 1.8vw, 16px);
 }
 
 
-/* VENUE */
+/* ========================================
+   VENUE
+======================================== */
 
 .venue {
-    margin-top: 4%;
+
+    margin-top: 3%;
 
     font-size:
         clamp(13px, 2.2vw, 20px);
 }
 
 
-/* ADDRESS */
+/* ========================================
+   ADDRESS
+======================================== */
 
 .address {
-    margin-top: 1.2%;
+
+    margin-top: .8%;
 
     font-size:
         clamp(11px, 1.9vw, 17px);
@@ -645,29 +799,37 @@ body {
 }
 
 
-/* SIGNATURE */
+/* ========================================
+   SIGNATURE
+======================================== */
 
 .signature {
-    margin-top: auto;
+
+    margin-top: 10px;
 
     font-size:
-        clamp(20px, 3.5vw, 33px);
+        clamp(18px, 3.2vw, 30px);
 
-    padding-bottom: 1%;
+    line-height: 1.1;
+
+    padding-bottom: 0;
 }
 
 
-/* =========================
+/* ========================================
    MUSIC BUTTON
-========================= */
+======================================== */
 
 .music-button {
+
     position: fixed;
 
     right: 18px;
+
     bottom: 18px;
 
     width: 48px;
+
     height: 48px;
 
     border-radius: 50%;
@@ -683,7 +845,9 @@ body {
     font-size: 21px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     cursor: pointer;
@@ -695,18 +859,23 @@ body {
 }
 
 
-/* =========================
-   ANIMATION
-========================= */
+/* ========================================
+   ANIMATIONS
+======================================== */
 
 @keyframes openFlap {
 
     0% {
-        transform: rotateX(0deg);
+
+        transform:
+            rotateX(0deg);
     }
 
+
     100% {
-        transform: rotateX(180deg);
+
+        transform:
+            rotateX(180deg);
 
         z-index: 0;
     }
@@ -714,9 +883,12 @@ body {
 }
 
 
+/* CARD COMES OUT OF ENVELOPE */
+
 @keyframes cardRise {
 
     0% {
+
         opacity: 0;
 
         transform:
@@ -728,11 +900,13 @@ body {
 
 
     12% {
+
         opacity: 1;
     }
 
 
     48% {
+
         transform:
             translate(-50%, -38%)
             scale(.82);
@@ -741,12 +915,19 @@ body {
     }
 
 
+    /*
+       CARD MOVES IN FRONT
+       OF ENVELOPE HERE
+    */
+
     49% {
+
         z-index: 20;
     }
 
 
     70% {
+
         transform:
             translate(-50%, -22%)
             scale(.92);
@@ -755,7 +936,12 @@ body {
     }
 
 
+    /*
+       FINAL POSITION
+    */
+
     100% {
+
         opacity: 1;
 
         transform:
@@ -768,18 +954,20 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ========================================
+   TABLET / MOBILE
+======================================== */
 
 @media (max-width: 768px) {
 
     body {
+
         overflow-y: auto;
     }
 
 
     .decor {
+
         width: 95px;
 
         opacity: .72;
@@ -787,6 +975,7 @@ body {
 
 
     .stage {
+
         min-height: 100vh;
 
         padding:
@@ -799,6 +988,7 @@ body {
 
 
     .scene {
+
         width: 100%;
 
         min-height: 760px;
@@ -806,6 +996,7 @@ body {
 
 
     .envelope {
+
         width: 86%;
 
         top: 310px;
@@ -813,22 +1004,52 @@ body {
 
 
     .card {
+
         width: 88%;
 
         top: 310px;
     }
 
 
+    /*
+       MOBILE TEXT
+       MOVED UP AS WELL
+    */
+
     .invitation-text {
+
         left: 9%;
+
         right: 9%;
 
-        top: 55%;
-        bottom: 4%;
+        top: 53.5%;
+
+        bottom: 8%;
+    }
+
+
+    .invitation-title {
+
+        margin-bottom: 2.5%;
+    }
+
+
+    .invitation-message {
+
+        margin-bottom: 2.5%;
+
+        line-height: 1.35;
+    }
+
+
+    .date-row {
+
+        margin-top: 0;
     }
 
 
     .vertical-line {
+
         height: 54px;
 
         margin: 0 7px;
@@ -836,15 +1057,39 @@ body {
 
 
     .date-side {
+
         gap: 5px;
     }
 
 
+    .venue {
+
+        margin-top: 2.5%;
+    }
+
+
+    .address {
+
+        margin-top: .5%;
+    }
+
+
+    .signature {
+
+        margin-top: 7px;
+
+        padding-bottom: 0;
+    }
+
+
     .music-button {
+
         right: 14px;
+
         bottom: 14px;
 
         width: 44px;
+
         height: 44px;
 
         font-size: 19px;
@@ -853,11 +1098,14 @@ body {
 }
 
 
-/* SMALL PHONES */
+/* ========================================
+   SMALL PHONES
+======================================== */
 
 @media (max-width: 420px) {
 
     .decor {
+
         width: 70px;
 
         opacity: .55;
@@ -865,11 +1113,13 @@ body {
 
 
     .scene {
+
         min-height: 700px;
     }
 
 
     .envelope {
+
         width: 91%;
 
         top: 270px;
@@ -877,54 +1127,98 @@ body {
 
 
     .card {
+
         width: 91%;
 
         top: 270px;
     }
 
 
+    .invitation-text {
+
+        top: 53%;
+
+        bottom: 8.5%;
+
+        left: 8%;
+
+        right: 8%;
+    }
+
+
     .invitation-title {
-        font-size: 21px;
+
+        font-size: 20px;
+
+        margin-bottom: 2%;
     }
 
 
     .invitation-message {
-        font-size: 10.5px;
+
+        font-size: 10px;
+
+        line-height: 1.3;
+
+        margin-bottom: 2%;
     }
 
 
     .date-side {
-        font-size: 9.5px;
+
+        font-size: 9px;
     }
 
 
     .day-number {
-        font-size: 39px;
+
+        font-size: 37px;
     }
 
 
     .month {
-        font-size: 9.5px;
+
+        font-size: 9px;
+
+        margin-top: 4px;
     }
 
 
     .year {
-        font-size: 9px;
+
+        font-size: 8.5px;
+    }
+
+
+    .vertical-line {
+
+        height: 48px;
     }
 
 
     .venue {
-        font-size: 10.5px;
+
+        font-size: 10px;
+
+        margin-top: 2%;
     }
 
 
     .address {
-        font-size: 9px;
+
+        font-size: 8.5px;
+
+        margin-top: .4%;
     }
 
 
     .signature {
-        font-size: 18px;
+
+        font-size: 17px;
+
+        margin-top: 6px;
+
+        line-height: 1;
     }
 
 }
@@ -937,73 +1231,121 @@ body {
 <body>
 
 
-<!-- GOLD SPECKLES -->
+<!-- ========================================
+     BACKGROUND GOLD SPECKLES
+======================================== -->
 
 <div class="speckles"></div>
 
 
-<!-- LEFT FLOWERS -->
+
+<!-- ========================================
+     LEFT SIDE DECORATIONS
+======================================== -->
 
 <div class="decor decor-left">
 
     <div class="branch b1"></div>
+
     <div class="branch b2"></div>
+
     <div class="branch b3"></div>
 
+
     <div class="sprig s1"></div>
+
     <div class="sprig s2"></div>
+
     <div class="sprig s3"></div>
 
+
     <div class="leaf l1"></div>
+
     <div class="leaf l2"></div>
+
     <div class="leaf l3"></div>
+
     <div class="leaf l4"></div>
+
     <div class="leaf l5"></div>
 
+
     <div class="leaf l6"></div>
+
     <div class="leaf l7"></div>
+
     <div class="leaf l8"></div>
+
     <div class="leaf l9"></div>
 
+
     <div class="leaf l10"></div>
+
     <div class="leaf l11"></div>
+
     <div class="leaf l12"></div>
+
     <div class="leaf l13"></div>
 
 </div>
 
 
-<!-- RIGHT FLOWERS -->
+
+<!-- ========================================
+     RIGHT SIDE DECORATIONS
+======================================== -->
 
 <div class="decor decor-right">
 
     <div class="branch b1"></div>
+
     <div class="branch b2"></div>
+
     <div class="branch b3"></div>
 
+
     <div class="sprig s1"></div>
+
     <div class="sprig s2"></div>
+
     <div class="sprig s3"></div>
 
+
     <div class="leaf l1"></div>
+
     <div class="leaf l2"></div>
+
     <div class="leaf l3"></div>
+
     <div class="leaf l4"></div>
+
     <div class="leaf l5"></div>
 
+
     <div class="leaf l6"></div>
+
     <div class="leaf l7"></div>
+
     <div class="leaf l8"></div>
+
     <div class="leaf l9"></div>
 
+
     <div class="leaf l10"></div>
+
     <div class="leaf l11"></div>
+
     <div class="leaf l12"></div>
+
     <div class="leaf l13"></div>
 
 </div>
 
 
+
+<!-- ========================================
+     MAIN STAGE
+======================================== -->
 
 <div class="stage">
 
@@ -1011,31 +1353,45 @@ body {
     <div class="scene">
 
 
-        <!-- ENVELOPE -->
+
+        <!-- =================================
+             ENVELOPE
+        ================================== -->
 
         <div class="envelope">
 
+
             <div class="envelope-back"></div>
+
 
             <div class="envelope-left"></div>
 
+
             <div class="envelope-right"></div>
+
 
             <div class="envelope-bottom"></div>
 
+
             <div class="envelope-flap"></div>
+
 
         </div>
 
 
 
-        <!-- CARD -->
+        <!-- =================================
+             INVITATION CARD
+        ================================== -->
 
         <div class="card">
 
 
             <div class="card-front">
 
+
+
+                <!-- YOUR INVITATION IMAGE -->
 
                 <img
                     class="invitation-bg"
@@ -1045,10 +1401,15 @@ body {
 
 
 
-                <!-- REAL HTML TEXT -->
+                <!-- =================================
+                     REAL HTML ARMENIAN TEXT
+                ================================== -->
 
                 <div class="invitation-text">
 
+
+
+                    <!-- TITLE -->
 
                     <div class="invitation-title">
 
@@ -1056,6 +1417,9 @@ body {
 
                     </div>
 
+
+
+                    <!-- MESSAGE -->
 
                     <div class="invitation-message">
 
@@ -1067,22 +1431,35 @@ body {
 
 
 
+                    <!-- DATE -->
+
                     <div class="date-row">
 
 
+
+                        <!-- MONDAY -->
+
                         <div class="date-side">
 
+
                             <div class="horizontal-line"></div>
+
 
                             <div>
+
                                 Երկուշաբթի
+
                             </div>
 
+
                             <div class="horizontal-line"></div>
+
 
                         </div>
 
 
+
+                        <!-- CENTER DATE -->
 
                         <div class="date-center">
 
@@ -1092,17 +1469,27 @@ body {
 
                             <div>
 
+
                                 <div class="day-number">
+
                                     5
+
                                 </div>
+
 
                                 <div class="month">
+
                                     Հոկտեմբեր
+
                                 </div>
 
+
                                 <div class="year">
+
                                     2026
+
                                 </div>
+
 
                             </div>
 
@@ -1114,15 +1501,23 @@ body {
 
 
 
+                        <!-- TIME -->
+
                         <div class="date-side">
 
+
                             <div class="horizontal-line"></div>
+
 
                             <div>
+
                                 18։00
+
                             </div>
 
+
                             <div class="horizontal-line"></div>
+
 
                         </div>
 
@@ -1130,6 +1525,8 @@ body {
                     </div>
 
 
+
+                    <!-- VENUE -->
 
                     <div class="venue">
 
@@ -1139,6 +1536,8 @@ body {
 
 
 
+                    <!-- ADDRESS -->
+
                     <div class="address">
 
                         Ք․ Մասիս, Էջմիածնի խճուղի 2/10
@@ -1146,6 +1545,8 @@ body {
                     </div>
 
 
+
+                    <!-- SIGNATURE -->
 
                     <div class="signature">
 
@@ -1170,7 +1571,9 @@ body {
 
 
 
-<!-- MUSIC -->
+<!-- ========================================
+     MUSIC
+======================================== -->
 
 <audio
     id="bgMusic"
@@ -1187,6 +1590,8 @@ body {
 </audio>
 
 
+
+<!-- MUSIC BUTTON -->
 
 <button
     class="music-button"
@@ -1205,6 +1610,7 @@ body {
 const music =
     document.getElementById("bgMusic");
 
+
 const musicButton =
     document.getElementById("musicButton");
 
@@ -1212,26 +1618,38 @@ const musicButton =
 music.volume = 0.7;
 
 
-/* AUTOPLAY ATTEMPT */
+
+/* ========================================
+   TRY AUTOPLAY IMMEDIATELY
+======================================== */
 
 function tryAutoplay() {
 
-    const attempt = music.play();
+    const attempt =
+        music.play();
 
 
     if (attempt !== undefined) {
+
 
         attempt
 
             .then(function () {
 
-                musicButton.innerHTML = "❚❚";
+
+                musicButton.innerHTML =
+                    "❚❚";
+
 
             })
 
+
             .catch(function () {
 
-                musicButton.innerHTML = "♪";
+
+                musicButton.innerHTML =
+                    "♪";
+
 
             });
 
@@ -1240,10 +1658,12 @@ function tryAutoplay() {
 }
 
 
+
 document.addEventListener(
     "DOMContentLoaded",
     tryAutoplay
 );
+
 
 
 window.addEventListener(
@@ -1252,27 +1672,41 @@ window.addEventListener(
 );
 
 
-/* MUSIC BUTTON */
+
+/* ========================================
+   MUSIC PLAY / PAUSE BUTTON
+======================================== */
 
 musicButton.addEventListener(
     "click",
     function () {
 
+
         if (music.paused) {
+
 
             music.play();
 
-            musicButton.innerHTML = "❚❚";
+
+            musicButton.innerHTML =
+                "❚❚";
+
 
         }
+
 
         else {
 
+
             music.pause();
 
-            musicButton.innerHTML = "♪";
+
+            musicButton.innerHTML =
+                "♪";
+
 
         }
+
 
     }
 );
