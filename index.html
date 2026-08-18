@@ -1,1 +1,713 @@
+<!DOCTYPE html>
+<html lang="hy">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>70th Birthday Invitation</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee9e1;
+}
+
+
+/* =========================
+   INVITATION
+========================= */
+
+.page {
+    position: relative;
+
+    width: 100%;
+    max-width: 768px;
+
+    margin: 0 auto;
+
+    line-height: normal;
+}
+
+.invitation {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   COVER ORIGINAL IMAGE TEXT
+========================= */
+
+.text-cover {
+    position: absolute;
+
+    left: 12.7%;
+    right: 12.3%;
+
+    top: 57.5%;
+    bottom: 2.7%;
+
+    background: #eee5d6;
+
+    z-index: 3;
+}
+
+
+/* =========================
+   ARMENIAN TEXT
+========================= */
+
+.invitation-text {
+    position: absolute;
+
+    left: 14%;
+    right: 14%;
+
+    top: 58.3%;
+    bottom: 4%;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    color: #271c14;
+
+    font-family:
+        "Sylfaen",
+        "Noto Serif Armenian",
+        "DejaVu Serif",
+        serif;
+}
+
+
+/* TITLE */
+
+.invitation-title {
+    font-size: clamp(27px, 5vw, 47px);
+
+    font-weight: 400;
+
+    margin-bottom: 3.4%;
+}
+
+
+/* MESSAGE */
+
+.invitation-message {
+    width: 92%;
+
+    font-size: clamp(14px, 2.65vw, 24px);
+
+    line-height: 1.55;
+
+    font-weight: 400;
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.date-section {
+    width: 100%;
+
+    margin-top: 5%;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    column-gap: 4%;
+}
+
+.date-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: clamp(13px, 2.3vw, 21px);
+}
+
+.date-line {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    background: rgba(44, 32, 23, 0.55);
+
+    margin: 9px 0;
+}
+
+.date-center {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 80px;
+
+    background: rgba(44, 32, 23, 0.55);
+
+    margin: 0 18px;
+}
+
+.day-month {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day-number {
+    font-size: clamp(45px, 8vw, 72px);
+
+    line-height: 0.9;
+
+    font-weight: 400;
+}
+
+.month {
+    margin-top: 9px;
+
+    font-size: clamp(13px, 2.3vw, 21px);
+}
+
+.year {
+    margin-top: 3px;
+
+    font-size: clamp(12px, 2.15vw, 20px);
+}
+
+
+/* =========================
+   VENUE
+========================= */
+
+.venue {
+    margin-top: 5%;
+
+    font-size: clamp(14px, 2.55vw, 23px);
+
+    line-height: 1.35;
+}
+
+
+/* =========================
+   ADDRESS
+========================= */
+
+.address {
+    margin-top: 1.3%;
+
+    font-size: clamp(12px, 2.25vw, 20px);
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature {
+    margin-top: auto;
+
+    font-size: clamp(21px, 4vw, 37px);
+
+    padding-bottom: 1%;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-button {
+    position: absolute;
+
+    right: 18px;
+    bottom: 18px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(75, 54, 36, 0.45);
+
+    background: rgba(239, 226, 204, 0.94);
+
+    color: #493729;
+
+    font-size: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+
+    z-index: 20;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 0;
+
+        margin: 0;
+        padding: 0;
+
+        overflow-x: hidden;
+    }
+
+    .page {
+        width: 100%;
+        height: auto;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .invitation {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .invitation-text {
+        left: 13.5%;
+        right: 13.5%;
+
+        top: 58.2%;
+        bottom: 4%;
+    }
+
+    .invitation-title {
+        margin-bottom: 2.5%;
+    }
+
+    .invitation-message {
+        width: 96%;
+
+        line-height: 1.42;
+    }
+
+    .date-section {
+        margin-top: 4%;
+    }
+
+    .vertical-line {
+        height: 55px;
+
+        margin: 0 9px;
+    }
+
+    .date-line {
+        margin: 5px 0;
+    }
+
+    .month {
+        margin-top: 5px;
+    }
+
+    .venue {
+        margin-top: 4%;
+    }
+
+    .address {
+        margin-top: 1%;
+    }
+
+    .music-button {
+        width: 44px;
+        height: 44px;
+
+        right: 14px;
+        bottom: 14px;
+
+        font-size: 19px;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 420px) {
+
+    .invitation-title {
+        font-size: 22px;
+    }
+
+    .invitation-message {
+        font-size: 11px;
+    }
+
+    .date-side {
+        font-size: 10px;
+    }
+
+    .day-number {
+        font-size: 40px;
+    }
+
+    .month {
+        font-size: 10px;
+    }
+
+    .year {
+        font-size: 10px;
+    }
+
+    .venue {
+        font-size: 11px;
+    }
+
+    .address {
+        font-size: 9.5px;
+    }
+
+    .signature {
+        font-size: 19px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- INVITATION IMAGE -->
+
+    <img
+        class="invitation"
+        src="./qisho.png"
+        alt="70th Birthday Invitation"
+    >
+
+
+    <!-- COVER OLD TEXT -->
+
+    <div class="text-cover"></div>
+
+
+    <!-- ARMENIAN TEXT -->
+
+    <div class="invitation-text">
+
+
+        <div class="invitation-title">
+            Սիրելի բարեկամ,
+        </div>
+
+
+        <div class="invitation-message">
+
+            Սիրով հրավիրում եմ Ձեզ մասնակցելու<br>
+
+            իմ 70ամյա հոբելյանի ուրախ երեկոյին։
+
+        </div>
+
+
+        <!-- DATE -->
+
+        <div class="date-section">
+
+
+            <!-- MONDAY -->
+
+            <div class="date-side">
+
+                <span class="date-line"></span>
+
+                <span>
+                    Երկուշաբթի
+                </span>
+
+                <span class="date-line"></span>
+
+            </div>
+
+
+            <!-- DATE CENTER -->
+
+            <div class="date-center">
+
+                <div class="vertical-line"></div>
+
+
+                <div class="day-month">
+
+                    <div class="day-number">
+                        5
+                    </div>
+
+                    <div class="month">
+                        Հոկտեմբեր
+                    </div>
+
+                    <div class="year">
+                        2026
+                    </div>
+
+                </div>
+
+
+                <div class="vertical-line"></div>
+
+            </div>
+
+
+            <!-- TIME -->
+
+            <div class="date-side">
+
+                <span class="date-line"></span>
+
+                <span>
+                    18։00
+                </span>
+
+                <span class="date-line"></span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- VENUE -->
+
+        <div class="venue">
+
+            «Մկրտչյանս Հոլլ» Սրահում
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="address">
+
+            Ք․ Մասիս, Էջմիածնի խճուղի 2/10
+
+        </div>
+
+
+        <!-- SIGNATURE -->
+
+        <div class="signature">
+
+            Սիրով Ձեր՝ Քիշո
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MUSIC BUTTON -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+        aria-label="Play or pause music"
+    >
+        ♪
+    </button>
+
+
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+    id="bgMusic"
+    autoplay
+    loop
+    preload="auto"
+>
+    <source
+        src="./music.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<script>
+
+const music = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+music.volume = 0.7;
+
+
+/* ==================================
+   TRY AUTOPLAY IMMEDIATELY
+================================== */
+
+function tryAutoplay() {
+
+    const playAttempt = music.play();
+
+    if (playAttempt !== undefined) {
+
+        playAttempt
+            .then(function() {
+
+                musicButton.innerHTML = "❚❚";
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Pause music"
+                );
+
+            })
+            .catch(function() {
+
+                /*
+                The browser blocked automatic
+                music with sound.
+                The music button remains available.
+                */
+
+                musicButton.innerHTML = "♪";
+
+            });
+
+    }
+
+}
+
+
+/* Try as soon as possible */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    tryAutoplay
+);
+
+
+/* Try again when everything is loaded */
+
+window.addEventListener(
+    "load",
+    tryAutoplay
+);
+
+
+/* Try again when page becomes visible */
+
+document.addEventListener(
+    "visibilitychange",
+    function() {
+
+        if (!document.hidden && music.paused) {
+            tryAutoplay();
+        }
+
+    }
+);
+
+
+/* ==================================
+   MUSIC BUTTON
+================================== */
+
+musicButton.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (music.paused) {
+
+            music.play()
+                .then(function() {
+
+                    musicButton.innerHTML = "❚❚";
+
+                    musicButton.setAttribute(
+                        "aria-label",
+                        "Pause music"
+                    );
+
+                })
+                .catch(function() {});
+
+        }
+
+        else {
+
+            music.pause();
+
+            musicButton.innerHTML = "♪";
+
+            musicButton.setAttribute(
+                "aria-label",
+                "Play music"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
