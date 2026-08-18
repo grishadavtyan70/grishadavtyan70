@@ -2,7 +2,6 @@
 <html lang="hy">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -26,229 +25,314 @@ body {
 }
 
 body {
-    background: #eee9e1;
+    background: #e8dfd2;
+    font-family: "Sylfaen", "Noto Serif Armenian", Georgia, serif;
+    color: #2b2119;
 }
 
 
-/* =========================
-   INVITATION
-========================= */
+/* =============================
+   WHOLE INVITATION
+============================= */
 
 .page {
-    position: relative;
-
     width: 100%;
     max-width: 768px;
 
     margin: 0 auto;
 
-    line-height: normal;
+    background: #eee5d6;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow: 0 18px 50px rgba(0,0,0,.17);
 }
 
-.invitation {
-    display: block;
+
+/* =============================
+   PHOTO AREA
+============================= */
+
+.photo-area {
+    position: relative;
 
     width: 100%;
-    height: auto;
+    height: 520px;
+
+    overflow: hidden;
+
+    background: #d9c4a5;
 }
 
 
-/* =========================
-   COVER ORIGINAL IMAGE TEXT
-========================= */
+/* BIG 70 */
 
-.text-cover {
+.big-70 {
     position: absolute;
 
-    left: 12.7%;
-    right: 12.3%;
+    top: -40px;
+    left: 50%;
 
-    top: 57.5%;
-    bottom: 2.7%;
+    transform: translateX(-50%);
 
-    background: #eee5d6;
+    font-family: Georgia, serif;
+
+    font-size: 350px;
+    line-height: 1;
+
+    color: rgba(255,255,255,.25);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* NEW PHOTO */
+
+.person-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center 35%;
+
+    display: block;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* soft beige blend at bottom */
+
+.photo-area::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 90px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(238,229,214,0),
+            #eee5d6
+        );
 
     z-index: 3;
 }
 
 
-/* =========================
-   ARMENIAN TEXT
-========================= */
+/* =============================
+   TEXT AREA
+============================= */
 
-.invitation-text {
-    position: absolute;
+.content {
+    position: relative;
 
-    left: 14%;
-    right: 14%;
+    background: #eee5d6;
 
-    top: 58.3%;
-    bottom: 4%;
-
-    z-index: 5;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding:
+        22px
+        55px
+        35px;
 
     text-align: center;
-
-    color: #271c14;
-
-    font-family:
-        "Sylfaen",
-        "Noto Serif Armenian",
-        "DejaVu Serif",
-        serif;
 }
 
 
-/* TITLE */
+/* torn-looking top edge */
 
-.invitation-title {
-    font-size: clamp(27px, 5vw, 47px);
+.content::before {
+    content: "";
 
-    font-weight: 400;
+    position: absolute;
 
-    margin-bottom: 3.4%;
-}
+    top: -22px;
+    left: 0;
 
-
-/* MESSAGE */
-
-.invitation-message {
-    width: 92%;
-
-    font-size: clamp(14px, 2.65vw, 24px);
-
-    line-height: 1.55;
-
-    font-weight: 400;
-}
-
-
-/* =========================
-   DATE
-========================= */
-
-.date-section {
     width: 100%;
+    height: 28px;
 
-    margin-top: 5%;
+    background: #eee5d6;
 
+    clip-path: polygon(
+        0 48%,
+        4% 20%,
+        8% 48%,
+        13% 18%,
+        18% 48%,
+        23% 23%,
+        29% 50%,
+        35% 17%,
+        41% 45%,
+        47% 18%,
+        53% 48%,
+        59% 21%,
+        65% 47%,
+        71% 17%,
+        77% 48%,
+        83% 22%,
+        89% 47%,
+        94% 18%,
+        100% 45%,
+        100% 100%,
+        0 100%
+    );
+
+    z-index: 5;
+}
+
+
+/* =============================
+   TITLE
+============================= */
+
+.title {
+    font-size: 45px;
+
+    font-weight: 400;
+
+    margin-bottom: 23px;
+}
+
+
+/* =============================
+   MESSAGE
+============================= */
+
+.message {
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    margin-bottom: 30px;
+}
+
+
+/* =============================
+   DATE
+============================= */
+
+.date-row {
     display: grid;
 
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns:
+        1fr
+        auto
+        1fr;
 
     align-items: center;
 
-    column-gap: 4%;
+    gap: 25px;
+
+    margin:
+        10px
+        auto
+        27px;
 }
+
+
+/* left / right */
 
 .date-side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: 19px;
 
-    font-size: clamp(13px, 2.3vw, 21px);
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    align-items: center;
 }
 
-.date-line {
-    display: block;
-
+.horizontal-line {
     width: 100%;
     height: 1px;
 
-    background: rgba(44, 32, 23, 0.55);
-
-    margin: 9px 0;
+    background: #746353;
 }
+
+
+/* center */
 
 .date-center {
     display: flex;
+
     align-items: center;
 }
 
 .vertical-line {
     width: 1px;
-    height: 80px;
+    height: 95px;
 
-    background: rgba(44, 32, 23, 0.55);
+    background: #746353;
 
     margin: 0 18px;
 }
 
-.day-month {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.date-number {
+    font-family: Georgia, serif;
 
-.day-number {
-    font-size: clamp(45px, 8vw, 72px);
+    font-size: 68px;
 
-    line-height: 0.9;
-
-    font-weight: 400;
+    line-height: .9;
 }
 
 .month {
-    margin-top: 9px;
+    font-size: 19px;
 
-    font-size: clamp(13px, 2.3vw, 21px);
+    margin-top: 8px;
 }
 
 .year {
-    margin-top: 3px;
+    font-size: 17px;
 
-    font-size: clamp(12px, 2.15vw, 20px);
+    margin-top: 4px;
 }
 
 
-/* =========================
-   VENUE
-========================= */
+/* =============================
+   LOCATION
+============================= */
 
 .venue {
-    margin-top: 5%;
+    font-size: 21px;
 
-    font-size: clamp(14px, 2.55vw, 23px);
-
-    line-height: 1.35;
+    margin-top: 8px;
 }
-
-
-/* =========================
-   ADDRESS
-========================= */
 
 .address {
-    margin-top: 1.3%;
+    font-size: 18px;
 
-    font-size: clamp(12px, 2.25vw, 20px);
-
-    line-height: 1.3;
-
-    white-space: nowrap;
+    margin-top: 10px;
 }
 
 
-/* =========================
+/* =============================
    SIGNATURE
-========================= */
+============================= */
 
 .signature {
-    margin-top: auto;
+    font-size: 32px;
 
-    font-size: clamp(21px, 4vw, 37px);
-
-    padding-bottom: 1%;
+    margin-top: 26px;
 }
 
 
-/* =========================
-   MUSIC BUTTON
-========================= */
+/* =============================
+   MUSIC
+============================= */
 
 .music-button {
     position: absolute;
@@ -256,167 +340,151 @@ body {
     right: 18px;
     bottom: 18px;
 
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(75, 54, 36, 0.45);
+    border: 1px solid #634c38;
 
-    background: rgba(239, 226, 204, 0.94);
+    background: rgba(238,229,214,.92);
 
-    color: #493729;
-
-    font-size: 22px;
+    color: #4a3525;
 
     display: flex;
-    justify-content: center;
+
     align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
 
     cursor: pointer;
 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+    z-index: 30;
 
-    z-index: 20;
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.18);
 }
 
 
-/* =========================
+/* =============================
    MOBILE
-========================= */
+============================= */
 
 @media (max-width: 768px) {
 
-    html,
     body {
-        width: 100%;
-        min-height: 0;
-
-        margin: 0;
-        padding: 0;
-
-        overflow-x: hidden;
+        background: #eee5d6;
     }
 
     .page {
         width: 100%;
-        height: auto;
+
+        max-width: none;
 
         margin: 0;
-        padding: 0;
+
+        box-shadow: none;
     }
 
-    .invitation {
-        display: block;
+    .photo-area {
+        height: 56vw;
 
-        width: 100%;
-        height: auto;
+        min-height: 300px;
 
-        margin: 0;
-        padding: 0;
+        max-height: 470px;
     }
 
-    .invitation-text {
-        left: 13.5%;
-        right: 13.5%;
-
-        top: 58.2%;
-        bottom: 4%;
+    .person-photo {
+        object-position: center 30%;
     }
 
-    .invitation-title {
-        margin-bottom: 2.5%;
+    .big-70 {
+        font-size: 48vw;
+
+        top: -5vw;
     }
 
-    .invitation-message {
-        width: 96%;
-
-        line-height: 1.42;
+    .content {
+        padding:
+            16px
+            25px
+            28px;
     }
 
-    .date-section {
-        margin-top: 4%;
+    .title {
+        font-size: clamp(27px, 7vw, 42px);
+
+        margin-bottom: 16px;
+    }
+
+    .message {
+        font-size: clamp(14px, 3.5vw, 21px);
+
+        line-height: 1.5;
+
+        margin-bottom: 19px;
+    }
+
+    .date-row {
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+    .date-side {
+        font-size: clamp(12px, 3vw, 18px);
+
+        gap: 6px;
     }
 
     .vertical-line {
-        height: 55px;
+        height: 65px;
 
-        margin: 0 9px;
+        margin: 0 8px;
     }
 
-    .date-line {
-        margin: 5px 0;
+    .date-number {
+        font-size: clamp(44px, 11vw, 65px);
     }
 
     .month {
+        font-size: clamp(12px, 3vw, 18px);
+
         margin-top: 5px;
     }
 
+    .year {
+        font-size: clamp(11px, 2.8vw, 16px);
+    }
+
     .venue {
-        margin-top: 4%;
+        font-size: clamp(14px, 3.5vw, 20px);
     }
 
     .address {
-        margin-top: 1%;
+        font-size: clamp(12px, 3vw, 18px);
+    }
+
+    .signature {
+        font-size: clamp(22px, 5.5vw, 31px);
+
+        margin-top: 20px;
     }
 
     .music-button {
-        width: 44px;
-        height: 44px;
+        position: fixed;
 
         right: 14px;
         bottom: 14px;
 
-        font-size: 19px;
-    }
-}
-
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media (max-width: 420px) {
-
-    .invitation-title {
-        font-size: 22px;
+        width: 44px;
+        height: 44px;
     }
 
-    .invitation-message {
-        font-size: 11px;
-    }
-
-    .date-side {
-        font-size: 10px;
-    }
-
-    .day-number {
-        font-size: 40px;
-    }
-
-    .month {
-        font-size: 10px;
-    }
-
-    .year {
-        font-size: 10px;
-    }
-
-    .venue {
-        font-size: 11px;
-    }
-
-    .address {
-        font-size: 9.5px;
-    }
-
-    .signature {
-        font-size: 19px;
-    }
 }
 
 </style>
-
 </head>
 
 
@@ -426,31 +494,36 @@ body {
 <div class="page">
 
 
-    <!-- INVITATION IMAGE -->
+    <!-- PHOTO -->
 
-    <img
-        class="invitation"
-        src="./qisho.png"
-        alt="70th Birthday Invitation"
-    >
+    <div class="photo-area">
 
+        <div class="big-70">
+            70
+        </div>
 
-    <!-- COVER OLD TEXT -->
+        <img
+            class="person-photo"
+            src="./qisho.png"
+            alt=""
+        >
 
-    <div class="text-cover"></div>
-
-
-    <!-- ARMENIAN TEXT -->
-
-    <div class="invitation-text">
+    </div>
 
 
-        <div class="invitation-title">
+    <!-- INVITATION -->
+
+    <div class="content">
+
+
+        <div class="title">
+
             Սիրելի բարեկամ,
+
         </div>
 
 
-        <div class="invitation-message">
+        <div class="message">
 
             Սիրով հրավիրում եմ Ձեզ մասնակցելու<br>
 
@@ -461,34 +534,31 @@ body {
 
         <!-- DATE -->
 
-        <div class="date-section">
+        <div class="date-row">
 
-
-            <!-- MONDAY -->
 
             <div class="date-side">
 
-                <span class="date-line"></span>
+                <div class="horizontal-line"></div>
 
-                <span>
+                <div>
                     Երկուշաբթի
-                </span>
+                </div>
 
-                <span class="date-line"></span>
+                <div class="horizontal-line"></div>
 
             </div>
 
 
-            <!-- DATE CENTER -->
-
             <div class="date-center">
+
 
                 <div class="vertical-line"></div>
 
 
-                <div class="day-month">
+                <div>
 
-                    <div class="day-number">
+                    <div class="date-number">
                         5
                     </div>
 
@@ -505,20 +575,19 @@ body {
 
                 <div class="vertical-line"></div>
 
+
             </div>
 
 
-            <!-- TIME -->
-
             <div class="date-side">
 
-                <span class="date-line"></span>
+                <div class="horizontal-line"></div>
 
-                <span>
+                <div>
                     18։00
-                </span>
+                </div>
 
-                <span class="date-line"></span>
+                <div class="horizontal-line"></div>
 
             </div>
 
@@ -561,7 +630,7 @@ body {
     <button
         class="music-button"
         id="musicButton"
-        aria-label="Play or pause music"
+        aria-label="Play music"
     >
         ♪
     </button>
@@ -570,9 +639,7 @@ body {
 </div>
 
 
-<!-- =========================
-     MUSIC
-========================= -->
+<!-- MUSIC -->
 
 <audio
     id="bgMusic"
@@ -580,67 +647,46 @@ body {
     loop
     preload="auto"
 >
+
     <source
         src="./music.mp3"
         type="audio/mpeg"
     >
+
 </audio>
 
 
 <script>
 
-const music = document.getElementById("bgMusic");
-const musicButton = document.getElementById("musicButton");
+const music =
+    document.getElementById("bgMusic");
+
+const musicButton =
+    document.getElementById("musicButton");
 
 music.volume = 0.7;
 
 
-/* ==================================
-   TRY AUTOPLAY IMMEDIATELY
-================================== */
+/* TRY AUTOPLAY */
 
 function tryAutoplay() {
 
-    const playAttempt = music.play();
+    music.play()
 
-    if (playAttempt !== undefined) {
+        .then(function () {
 
-        playAttempt
-            .then(function() {
+            musicButton.innerHTML = "❚❚";
 
-                musicButton.innerHTML = "❚❚";
-                musicButton.setAttribute(
-                    "aria-label",
-                    "Pause music"
-                );
+        })
 
-            })
-            .catch(function() {
+        .catch(function () {
 
-                /*
-                The browser blocked automatic
-                music with sound.
-                The music button remains available.
-                */
+            musicButton.innerHTML = "♪";
 
-                musicButton.innerHTML = "♪";
-
-            });
-
-    }
+        });
 
 }
 
-
-/* Try as soon as possible */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    tryAutoplay
-);
-
-
-/* Try again when everything is loaded */
 
 window.addEventListener(
     "load",
@@ -648,44 +694,19 @@ window.addEventListener(
 );
 
 
-/* Try again when page becomes visible */
-
-document.addEventListener(
-    "visibilitychange",
-    function() {
-
-        if (!document.hidden && music.paused) {
-            tryAutoplay();
-        }
-
-    }
-);
-
-
-/* ==================================
-   MUSIC BUTTON
-================================== */
+/* MUSIC BUTTON */
 
 musicButton.addEventListener(
     "click",
-    function(event) {
+    function (event) {
 
         event.stopPropagation();
 
         if (music.paused) {
 
-            music.play()
-                .then(function() {
+            music.play();
 
-                    musicButton.innerHTML = "❚❚";
-
-                    musicButton.setAttribute(
-                        "aria-label",
-                        "Pause music"
-                    );
-
-                })
-                .catch(function() {});
+            musicButton.innerHTML = "❚❚";
 
         }
 
@@ -694,11 +715,6 @@ musicButton.addEventListener(
             music.pause();
 
             musicButton.innerHTML = "♪";
-
-            musicButton.setAttribute(
-                "aria-label",
-                "Play music"
-            );
 
         }
 
