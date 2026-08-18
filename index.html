@@ -20,210 +20,277 @@
 html,
 body {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    min-height: 100%;
 }
 
 body {
-    background: #e8dfd2;
-    font-family: "Sylfaen", "Noto Serif Armenian", Georgia, serif;
+    background: #e9e1d6;
+    overflow-x: hidden;
+
+    font-family:
+        "Sylfaen",
+        "Noto Serif Armenian",
+        "DejaVu Serif",
+        Georgia,
+        serif;
+
     color: #2b2119;
 }
 
 
-/* =============================
-   WHOLE INVITATION
-============================= */
+/* =========================
+   STAGE
+========================= */
 
-.page {
+.stage {
     width: 100%;
-    max-width: 768px;
+    min-height: 100vh;
 
-    margin: 0 auto;
-
-    background: #eee5d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     position: relative;
 
     overflow: hidden;
 
-    box-shadow: 0 18px 50px rgba(0,0,0,.17);
+    padding: 20px;
 }
 
 
-/* =============================
-   PHOTO AREA
-============================= */
+/* =========================
+   ENVELOPE
+========================= */
 
-.photo-area {
-    position: relative;
-
-    width: 100%;
-    height: 520px;
-
-    overflow: hidden;
-
-    background: #d9c4a5;
-}
-
-
-/* BIG 70 */
-
-.big-70 {
-    position: absolute;
-
-    top: -40px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-family: Georgia, serif;
-
-    font-size: 350px;
-    line-height: 1;
-
-    color: rgba(255,255,255,.25);
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-
-/* NEW PHOTO */
-
-.person-photo {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position: center 35%;
-
-    display: block;
+.envelope {
+    width: min(82vw, 620px);
+    aspect-ratio: 1.55 / 1;
 
     position: relative;
 
-    z-index: 2;
+    perspective: 1200px;
 }
 
 
-/* soft beige blend at bottom */
+/* BACK */
 
-.photo-area::after {
-    content: "";
-
+.envelope-back {
     position: absolute;
 
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 90px;
+    inset: 0;
 
     background:
         linear-gradient(
-            to bottom,
-            rgba(238,229,214,0),
-            #eee5d6
+            145deg,
+            #c59a68,
+            #a97849
         );
 
-    z-index: 3;
+    border-radius: 4px;
+
+    box-shadow:
+        0 22px 50px rgba(0,0,0,.22);
+
+    z-index: 1;
 }
 
 
-/* =============================
-   TEXT AREA
-============================= */
+/* LEFT FOLD */
 
-.content {
-    position: relative;
-
-    background: #eee5d6;
-
-    padding:
-        22px
-        55px
-        35px;
-
-    text-align: center;
-}
-
-
-/* torn-looking top edge */
-
-.content::before {
-    content: "";
-
+.envelope-left {
     position: absolute;
 
-    top: -22px;
-    left: 0;
+    inset: 0;
 
-    width: 100%;
-    height: 28px;
+    background: #bc8b59;
 
-    background: #eee5d6;
-
-    clip-path: polygon(
-        0 48%,
-        4% 20%,
-        8% 48%,
-        13% 18%,
-        18% 48%,
-        23% 23%,
-        29% 50%,
-        35% 17%,
-        41% 45%,
-        47% 18%,
-        53% 48%,
-        59% 21%,
-        65% 47%,
-        71% 17%,
-        77% 48%,
-        83% 22%,
-        89% 47%,
-        94% 18%,
-        100% 45%,
-        100% 100%,
-        0 100%
-    );
+    clip-path:
+        polygon(
+            0 0,
+            52% 52%,
+            0 100%
+        );
 
     z-index: 5;
 }
 
 
-/* =============================
-   TITLE
-============================= */
+/* RIGHT FOLD */
 
-.title {
-    font-size: 45px;
+.envelope-right {
+    position: absolute;
+
+    inset: 0;
+
+    background: #b78351;
+
+    clip-path:
+        polygon(
+            100% 0,
+            48% 52%,
+            100% 100%
+        );
+
+    z-index: 5;
+}
+
+
+/* BOTTOM FOLD */
+
+.envelope-bottom {
+    position: absolute;
+
+    inset: 0;
+
+    background: #c99a66;
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 44%,
+            100% 100%
+        );
+
+    z-index: 6;
+}
+
+
+/* FLAP */
+
+.envelope-flap {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 56%;
+
+    background:
+        linear-gradient(
+            160deg,
+            #c99a66,
+            #ae7c4d
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top center;
+
+    z-index: 10;
+
+    animation:
+        openFlap 0.9s ease forwards;
+
+    animation-delay: 0.45s;
+}
+
+
+/* =========================
+   INVITATION CARD
+========================= */
+
+.card {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 82%;
+
+    transform:
+        translate(-50%, -5%)
+        scale(.78);
+
+    opacity: 0;
+
+    z-index: 3;
+
+    animation:
+        cardOut 2s cubic-bezier(.22,.75,.22,1) forwards;
+
+    animation-delay: 1.1s;
+}
+
+
+.invitation-wrap {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.invitation-bg {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   HTML TEXT
+========================= */
+
+.invitation-text {
+    position: absolute;
+
+    left: 10%;
+    right: 10%;
+
+    top: 55%;
+    bottom: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    color: #2b2017;
+
+    z-index: 10;
+}
+
+
+/* TITLE */
+
+.invitation-title {
+    font-size:
+        clamp(24px, 4.5vw, 44px);
 
     font-weight: 400;
 
-    margin-bottom: 23px;
+    margin-bottom: 4%;
 }
 
 
-/* =============================
-   MESSAGE
-============================= */
+/* MESSAGE */
 
-.message {
-    font-size: 22px;
+.invitation-message {
+    width: 95%;
 
-    line-height: 1.5;
+    font-size:
+        clamp(13px, 2.3vw, 22px);
 
-    margin-bottom: 30px;
+    line-height: 1.45;
+
+    margin-bottom: 4%;
 }
 
 
-/* =============================
+/* =========================
    DATE
-============================= */
+========================= */
 
 .date-row {
+    width: 100%;
+
     display: grid;
 
     grid-template-columns:
@@ -233,109 +300,120 @@ body {
 
     align-items: center;
 
-    gap: 25px;
+    gap: 4%;
 
-    margin:
-        10px
-        auto
-        27px;
+    margin-top: 2%;
 }
 
-
-/* left / right */
 
 .date-side {
-    font-size: 19px;
-
     display: flex;
-
     flex-direction: column;
-
-    gap: 10px;
-
     align-items: center;
+
+    gap: 8px;
+
+    font-size:
+        clamp(12px, 2vw, 19px);
 }
+
 
 .horizontal-line {
     width: 100%;
     height: 1px;
 
-    background: #746353;
+    background:
+        rgba(55,42,30,.55);
 }
 
-
-/* center */
 
 .date-center {
     display: flex;
-
     align-items: center;
 }
 
+
 .vertical-line {
     width: 1px;
-    height: 95px;
+    height: 80px;
 
-    background: #746353;
+    background:
+        rgba(55,42,30,.55);
 
-    margin: 0 18px;
+    margin: 0 14px;
 }
 
-.date-number {
-    font-family: Georgia, serif;
 
-    font-size: 68px;
+.day-number {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(45px, 7vw, 70px);
 
     line-height: .9;
 }
 
-.month {
-    font-size: 19px;
 
-    margin-top: 8px;
+.month {
+    margin-top: 7px;
+
+    font-size:
+        clamp(12px, 2vw, 19px);
 }
+
 
 .year {
-    font-size: 17px;
+    margin-top: 3px;
 
-    margin-top: 4px;
+    font-size:
+        clamp(11px, 1.8vw, 17px);
 }
 
 
-/* =============================
+/* =========================
    LOCATION
-============================= */
+========================= */
 
 .venue {
-    font-size: 21px;
+    margin-top: 4%;
 
-    margin-top: 8px;
+    font-size:
+        clamp(13px, 2.2vw, 21px);
 }
+
 
 .address {
-    font-size: 18px;
+    margin-top: 1.2%;
 
-    margin-top: 10px;
+    font-size:
+        clamp(11px, 1.9vw, 18px);
+
+    white-space: nowrap;
 }
 
 
-/* =============================
+/* =========================
    SIGNATURE
-============================= */
+========================= */
 
 .signature {
-    font-size: 32px;
+    margin-top: auto;
 
-    margin-top: 26px;
+    font-size:
+        clamp(20px, 3.5vw, 34px);
+
+    padding-bottom: 1%;
 }
 
 
-/* =============================
-   MUSIC
-============================= */
+/* =========================
+   MUSIC BUTTON
+========================= */
 
 .music-button {
-    position: absolute;
+    position: fixed;
 
     right: 18px;
     bottom: 18px;
@@ -345,295 +423,332 @@ body {
 
     border-radius: 50%;
 
-    border: 1px solid #634c38;
+    border:
+        1px solid rgba(75,54,36,.5);
 
-    background: rgba(238,229,214,.92);
+    background:
+        rgba(239,226,204,.94);
 
-    color: #4a3525;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    color: #493729;
 
     font-size: 21px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     cursor: pointer;
 
-    z-index: 30;
-
     box-shadow:
-        0 3px 12px rgba(0,0,0,.18);
+        0 4px 14px rgba(0,0,0,.18);
+
+    z-index: 100;
 }
 
 
-/* =============================
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes openFlap {
+
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        transform: rotateX(180deg);
+        z-index: 0;
+    }
+
+}
+
+
+@keyframes cardOut {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -5%)
+            scale(.78);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    65% {
+        transform:
+            translate(-50%, -92%)
+            scale(.92);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.26);
+    }
+
+}
+
+
+/* =========================
    MOBILE
-============================= */
+========================= */
 
 @media (max-width: 768px) {
 
-    body {
-        background: #eee5d6;
+    .stage {
+        padding: 0;
+        min-height: 100vh;
     }
 
-    .page {
-        width: 100%;
-
-        max-width: none;
-
-        margin: 0;
-
-        box-shadow: none;
+    .envelope {
+        width: 91vw;
     }
 
-    .photo-area {
-        height: 56vw;
-
-        min-height: 300px;
-
-        max-height: 470px;
+    .card {
+        width: 88%;
     }
 
-    .person-photo {
-        object-position: center 30%;
-    }
+    .invitation-text {
+        left: 9%;
+        right: 9%;
 
-    .big-70 {
-        font-size: 48vw;
-
-        top: -5vw;
-    }
-
-    .content {
-        padding:
-            16px
-            25px
-            28px;
-    }
-
-    .title {
-        font-size: clamp(27px, 7vw, 42px);
-
-        margin-bottom: 16px;
-    }
-
-    .message {
-        font-size: clamp(14px, 3.5vw, 21px);
-
-        line-height: 1.5;
-
-        margin-bottom: 19px;
-    }
-
-    .date-row {
-        gap: 10px;
-
-        margin-bottom: 20px;
-    }
-
-    .date-side {
-        font-size: clamp(12px, 3vw, 18px);
-
-        gap: 6px;
+        top: 55%;
+        bottom: 4%;
     }
 
     .vertical-line {
-        height: 65px;
+        height: 55px;
 
-        margin: 0 8px;
+        margin: 0 7px;
     }
 
-    .date-number {
-        font-size: clamp(44px, 11vw, 65px);
-    }
-
-    .month {
-        font-size: clamp(12px, 3vw, 18px);
-
-        margin-top: 5px;
-    }
-
-    .year {
-        font-size: clamp(11px, 2.8vw, 16px);
-    }
-
-    .venue {
-        font-size: clamp(14px, 3.5vw, 20px);
-    }
-
-    .address {
-        font-size: clamp(12px, 3vw, 18px);
-    }
-
-    .signature {
-        font-size: clamp(22px, 5.5vw, 31px);
-
-        margin-top: 20px;
+    .date-side {
+        gap: 5px;
     }
 
     .music-button {
-        position: fixed;
-
         right: 14px;
         bottom: 14px;
 
         width: 44px;
         height: 44px;
+
+        font-size: 19px;
+    }
+
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 420px) {
+
+    .invitation-title {
+        font-size: 21px;
+    }
+
+    .invitation-message {
+        font-size: 10.5px;
+    }
+
+    .date-side {
+        font-size: 9.5px;
+    }
+
+    .day-number {
+        font-size: 39px;
+    }
+
+    .month {
+        font-size: 9.5px;
+    }
+
+    .year {
+        font-size: 9px;
+    }
+
+    .venue {
+        font-size: 10.5px;
+    }
+
+    .address {
+        font-size: 9px;
+    }
+
+    .signature {
+        font-size: 18px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<div class="page">
+<div class="stage">
 
 
-    <!-- PHOTO -->
+    <div class="envelope">
 
-    <div class="photo-area">
 
-        <div class="big-70">
-            70
+        <div class="envelope-back"></div>
+
+
+        <!-- INVITATION CARD -->
+
+        <div class="card">
+
+
+            <div class="invitation-wrap">
+
+
+                <img
+                    class="invitation-bg"
+                    src="./invitation-bg.png"
+                    alt="70th Birthday Invitation"
+                >
+
+
+                <!-- ALL TEXT IS REAL HTML -->
+
+                <div class="invitation-text">
+
+
+                    <div class="invitation-title">
+
+                        Սիրելի բարեկամ,
+
+                    </div>
+
+
+                    <div class="invitation-message">
+
+                        Սիրով հրավիրում եմ Ձեզ մասնակցելու<br>
+
+                        իմ 70ամյա հոբելյանի ուրախ երեկոյին։
+
+                    </div>
+
+
+                    <!-- DATE -->
+
+                    <div class="date-row">
+
+
+                        <div class="date-side">
+
+                            <div class="horizontal-line"></div>
+
+                            <div>
+                                Երկուշաբթի
+                            </div>
+
+                            <div class="horizontal-line"></div>
+
+                        </div>
+
+
+                        <div class="date-center">
+
+
+                            <div class="vertical-line"></div>
+
+
+                            <div>
+
+                                <div class="day-number">
+                                    5
+                                </div>
+
+                                <div class="month">
+                                    Հոկտեմբեր
+                                </div>
+
+                                <div class="year">
+                                    2026
+                                </div>
+
+                            </div>
+
+
+                            <div class="vertical-line"></div>
+
+
+                        </div>
+
+
+                        <div class="date-side">
+
+                            <div class="horizontal-line"></div>
+
+                            <div>
+                                18։00
+                            </div>
+
+                            <div class="horizontal-line"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- VENUE -->
+
+                    <div class="venue">
+
+                        «Մկրտչյանս Հոլլ» Սրահում
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="address">
+
+                        Ք․ Մասիս, Էջմիածնի խճուղի 2/10
+
+                    </div>
+
+
+                    <!-- SIGNATURE -->
+
+                    <div class="signature">
+
+                        Սիրով Ձեր՝ Քիշո
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
         </div>
 
-        <img
-            class="person-photo"
-            src="./qisho.png"
-            alt=""
-        >
+
+        <div class="envelope-left"></div>
+
+        <div class="envelope-right"></div>
+
+        <div class="envelope-bottom"></div>
+
+        <div class="envelope-flap"></div>
+
 
     </div>
-
-
-    <!-- INVITATION -->
-
-    <div class="content">
-
-
-        <div class="title">
-
-            Սիրելի բարեկամ,
-
-        </div>
-
-
-        <div class="message">
-
-            Սիրով հրավիրում եմ Ձեզ մասնակցելու<br>
-
-            իմ 70ամյա հոբելյանի ուրախ երեկոյին։
-
-        </div>
-
-
-        <!-- DATE -->
-
-        <div class="date-row">
-
-
-            <div class="date-side">
-
-                <div class="horizontal-line"></div>
-
-                <div>
-                    Երկուշաբթի
-                </div>
-
-                <div class="horizontal-line"></div>
-
-            </div>
-
-
-            <div class="date-center">
-
-
-                <div class="vertical-line"></div>
-
-
-                <div>
-
-                    <div class="date-number">
-                        5
-                    </div>
-
-                    <div class="month">
-                        Հոկտեմբեր
-                    </div>
-
-                    <div class="year">
-                        2026
-                    </div>
-
-                </div>
-
-
-                <div class="vertical-line"></div>
-
-
-            </div>
-
-
-            <div class="date-side">
-
-                <div class="horizontal-line"></div>
-
-                <div>
-                    18։00
-                </div>
-
-                <div class="horizontal-line"></div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- VENUE -->
-
-        <div class="venue">
-
-            «Մկրտչյանս Հոլլ» Սրահում
-
-        </div>
-
-
-        <!-- ADDRESS -->
-
-        <div class="address">
-
-            Ք․ Մասիս, Էջմիածնի խճուղի 2/10
-
-        </div>
-
-
-        <!-- SIGNATURE -->
-
-        <div class="signature">
-
-            Սիրով Ձեր՝ Քիշո
-
-        </div>
-
-
-    </div>
-
-
-    <!-- MUSIC BUTTON -->
-
-    <button
-        class="music-button"
-        id="musicButton"
-        aria-label="Play music"
-    >
-        ♪
-    </button>
 
 
 </div>
@@ -656,6 +771,15 @@ body {
 </audio>
 
 
+<button
+    class="music-button"
+    id="musicButton"
+    aria-label="Play or pause music"
+>
+    ♪
+</button>
+
+
 <script>
 
 const music =
@@ -667,26 +791,42 @@ const musicButton =
 music.volume = 0.7;
 
 
-/* TRY AUTOPLAY */
+/* TRY TO START MUSIC IMMEDIATELY */
 
 function tryAutoplay() {
 
-    music.play()
+    const attempt = music.play();
 
-        .then(function () {
+    if (attempt !== undefined) {
 
-            musicButton.innerHTML = "❚❚";
+        attempt
 
-        })
+            .then(function () {
 
-        .catch(function () {
+                musicButton.innerHTML = "❚❚";
 
-            musicButton.innerHTML = "♪";
+            })
 
-        });
+            .catch(function () {
+
+                musicButton.innerHTML = "♪";
+
+            });
+
+    }
 
 }
 
+
+/* TRY AS EARLY AS POSSIBLE */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    tryAutoplay
+);
+
+
+/* TRY AGAIN WHEN FULLY LOADED */
 
 window.addEventListener(
     "load",
@@ -701,6 +841,7 @@ musicButton.addEventListener(
     function (event) {
 
         event.stopPropagation();
+
 
         if (music.paused) {
 
