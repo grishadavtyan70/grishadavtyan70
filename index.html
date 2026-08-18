@@ -24,7 +24,13 @@ body {
 }
 
 body {
-    background: #e9e1d6;
+    background:
+        radial-gradient(
+            circle at center,
+            #f3eadf 0%,
+            #ece2d6 55%,
+            #e7ddd0 100%
+        );
 
     font-family:
         "Sylfaen",
@@ -36,6 +42,235 @@ body {
     color: #2b2119;
 
     overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND DECORATION
+========================= */
+
+.decor {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+
+    width: 180px;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+.decor-left {
+    left: 0;
+}
+
+
+.decor-right {
+    right: 0;
+
+    transform: scaleX(-1);
+}
+
+
+/* STEM */
+
+.branch {
+    position: absolute;
+
+    width: 3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #886f45,
+            #6d5a3a
+        );
+
+    border-radius: 50%;
+
+    transform-origin: bottom center;
+}
+
+
+/* LEAF */
+
+.leaf {
+    position: absolute;
+
+    width: 24px;
+    height: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6f7354,
+            #3f4936
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    transform-origin: left center;
+
+    opacity: .94;
+}
+
+
+/* GOLDEN SPRIG */
+
+.sprig {
+    position: absolute;
+
+    width: 2px;
+
+    background: #a67c3d;
+
+    transform-origin: bottom center;
+}
+
+
+.sprig::before,
+.sprig::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 3px;
+
+    background: #b68a47;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 12px 0 #b68a47,
+        0 24px 0 #b68a47,
+        0 36px 0 #b68a47,
+        0 48px 0 #b68a47,
+        0 60px 0 #b68a47;
+}
+
+
+.sprig::before {
+    left: -6px;
+    transform: rotate(-28deg);
+}
+
+
+.sprig::after {
+    right: -6px;
+    transform: rotate(28deg);
+}
+
+
+/* LEFT DECOR GROUPS */
+
+.decor-left .b1 {
+    left: 24px;
+    top: 50px;
+
+    height: 280px;
+
+    transform: rotate(-8deg);
+}
+
+
+.decor-left .b2 {
+    left: 65px;
+    top: 520px;
+
+    height: 250px;
+
+    transform: rotate(7deg);
+}
+
+
+.decor-left .b3 {
+    left: 28px;
+    bottom: 60px;
+
+    height: 270px;
+
+    transform: rotate(-5deg);
+}
+
+
+.decor-left .s1 {
+    left: 88px;
+    top: 22px;
+
+    height: 155px;
+
+    transform: rotate(18deg);
+}
+
+
+.decor-left .s2 {
+    left: 105px;
+    top: 455px;
+
+    height: 150px;
+
+    transform: rotate(12deg);
+}
+
+
+.decor-left .s3 {
+    left: 90px;
+    bottom: 30px;
+
+    height: 165px;
+
+    transform: rotate(15deg);
+}
+
+
+/* LEAVES */
+
+.l1 { left: 2px; top: 48px; transform: rotate(-35deg); }
+.l2 { left: 5px; top: 86px; transform: rotate(-22deg); }
+.l3 { left: 10px; top: 128px; transform: rotate(-10deg); }
+.l4 { left: 14px; top: 170px; transform: rotate(5deg); }
+.l5 { left: 18px; top: 212px; transform: rotate(20deg); }
+
+.l6 { left: 70px; top: 540px; transform: rotate(145deg); }
+.l7 { left: 70px; top: 582px; transform: rotate(160deg); }
+.l8 { left: 68px; top: 625px; transform: rotate(175deg); }
+.l9 { left: 64px; top: 668px; transform: rotate(190deg); }
+
+.l10 { left: 6px; bottom: 230px; transform: rotate(-28deg); }
+.l11 { left: 10px; bottom: 185px; transform: rotate(-12deg); }
+.l12 { left: 13px; bottom: 140px; transform: rotate(4deg); }
+.l13 { left: 16px; bottom: 95px; transform: rotate(20deg); }
+
+
+/* GOLD SPECKLES */
+
+.speckles {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(184,139,69,.55) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(184,139,69,.35) 1px, transparent 1.5px);
+
+    background-size:
+        90px 110px,
+        140px 160px;
+
+    background-position:
+        15px 35px,
+        55px 95px;
+
+    opacity: .34;
 }
 
 
@@ -54,9 +289,11 @@ body {
 
     position: relative;
 
-    padding: 30px 20px;
+    padding: 30px 20px 80px;
 
     overflow: visible;
+
+    z-index: 2;
 }
 
 
@@ -101,8 +338,6 @@ body {
 }
 
 
-/* BACK */
-
 .envelope-back {
     position: absolute;
 
@@ -122,8 +357,6 @@ body {
 }
 
 
-/* LEFT */
-
 .envelope-left {
     position: absolute;
 
@@ -141,8 +374,6 @@ body {
     z-index: 4;
 }
 
-
-/* RIGHT */
 
 .envelope-right {
     position: absolute;
@@ -162,8 +393,6 @@ body {
 }
 
 
-/* BOTTOM */
-
 .envelope-bottom {
     position: absolute;
 
@@ -181,8 +410,6 @@ body {
     z-index: 5;
 }
 
-
-/* FLAP */
 
 .envelope-flap {
     position: absolute;
@@ -233,7 +460,7 @@ body {
     opacity: 0;
 
     transform:
-        translate(-50%, 5%)
+        translate(-50%, 10%)
         scale(.70);
 
     z-index: 3;
@@ -266,7 +493,7 @@ body {
 
 
 /* =========================
-   TEXT
+   HTML TEXT
 ========================= */
 
 .invitation-text {
@@ -290,8 +517,6 @@ body {
 }
 
 
-/* TITLE */
-
 .invitation-title {
     font-size:
         clamp(24px, 4.4vw, 43px);
@@ -301,8 +526,6 @@ body {
     margin-bottom: 4%;
 }
 
-
-/* MESSAGE */
 
 .invitation-message {
     width: 95%;
@@ -316,9 +539,7 @@ body {
 }
 
 
-/* =========================
-   DATE
-========================= */
+/* DATE */
 
 .date-row {
     width: 100%;
@@ -402,9 +623,7 @@ body {
 }
 
 
-/* =========================
-   VENUE / ADDRESS
-========================= */
+/* VENUE */
 
 .venue {
     margin-top: 4%;
@@ -413,6 +632,8 @@ body {
         clamp(13px, 2.2vw, 20px);
 }
 
+
+/* ADDRESS */
 
 .address {
     margin-top: 1.2%;
@@ -424,9 +645,7 @@ body {
 }
 
 
-/* =========================
-   SIGNATURE
-========================= */
+/* SIGNATURE */
 
 .signature {
     margin-top: auto;
@@ -439,7 +658,7 @@ body {
 
 
 /* =========================
-   MUSIC
+   MUSIC BUTTON
 ========================= */
 
 .music-button {
@@ -477,7 +696,7 @@ body {
 
 
 /* =========================
-   ANIMATIONS
+   ANIMATION
 ========================= */
 
 @keyframes openFlap {
@@ -494,9 +713,6 @@ body {
 
 }
 
-
-/* CARD STARTS INSIDE ENVELOPE
-   THEN COMES COMPLETELY FORWARD */
 
 @keyframes cardRise {
 
@@ -563,6 +779,13 @@ body {
     }
 
 
+    .decor {
+        width: 95px;
+
+        opacity: .72;
+    }
+
+
     .stage {
         min-height: 100vh;
 
@@ -572,8 +795,6 @@ body {
             80px;
 
         align-items: flex-start;
-
-        overflow: visible;
     }
 
 
@@ -581,8 +802,6 @@ body {
         width: 100%;
 
         min-height: 760px;
-
-        overflow: visible;
     }
 
 
@@ -634,11 +853,16 @@ body {
 }
 
 
-/* =========================
-   SMALL PHONES
-========================= */
+/* SMALL PHONES */
 
 @media (max-width: 420px) {
+
+    .decor {
+        width: 70px;
+
+        opacity: .55;
+    }
+
 
     .scene {
         min-height: 700px;
@@ -706,13 +930,83 @@ body {
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
+<!-- GOLD SPECKLES -->
+
+<div class="speckles"></div>
+
+
+<!-- LEFT FLOWERS -->
+
+<div class="decor decor-left">
+
+    <div class="branch b1"></div>
+    <div class="branch b2"></div>
+    <div class="branch b3"></div>
+
+    <div class="sprig s1"></div>
+    <div class="sprig s2"></div>
+    <div class="sprig s3"></div>
+
+    <div class="leaf l1"></div>
+    <div class="leaf l2"></div>
+    <div class="leaf l3"></div>
+    <div class="leaf l4"></div>
+    <div class="leaf l5"></div>
+
+    <div class="leaf l6"></div>
+    <div class="leaf l7"></div>
+    <div class="leaf l8"></div>
+    <div class="leaf l9"></div>
+
+    <div class="leaf l10"></div>
+    <div class="leaf l11"></div>
+    <div class="leaf l12"></div>
+    <div class="leaf l13"></div>
+
+</div>
+
+
+<!-- RIGHT FLOWERS -->
+
+<div class="decor decor-right">
+
+    <div class="branch b1"></div>
+    <div class="branch b2"></div>
+    <div class="branch b3"></div>
+
+    <div class="sprig s1"></div>
+    <div class="sprig s2"></div>
+    <div class="sprig s3"></div>
+
+    <div class="leaf l1"></div>
+    <div class="leaf l2"></div>
+    <div class="leaf l3"></div>
+    <div class="leaf l4"></div>
+    <div class="leaf l5"></div>
+
+    <div class="leaf l6"></div>
+    <div class="leaf l7"></div>
+    <div class="leaf l8"></div>
+    <div class="leaf l9"></div>
+
+    <div class="leaf l10"></div>
+    <div class="leaf l11"></div>
+    <div class="leaf l12"></div>
+    <div class="leaf l13"></div>
+
+</div>
+
+
+
 <div class="stage">
+
 
     <div class="scene">
 
@@ -739,6 +1033,7 @@ body {
 
         <div class="card">
 
+
             <div class="card-front">
 
 
@@ -750,7 +1045,7 @@ body {
 
 
 
-                <!-- HTML TEXT -->
+                <!-- REAL HTML TEXT -->
 
                 <div class="invitation-text">
 
@@ -864,14 +1159,18 @@ body {
 
             </div>
 
+
         </div>
 
 
     </div>
 
+
 </div>
 
 
+
+<!-- MUSIC -->
 
 <audio
     id="bgMusic"
@@ -909,9 +1208,11 @@ const music =
 const musicButton =
     document.getElementById("musicButton");
 
+
 music.volume = 0.7;
 
 
+/* AUTOPLAY ATTEMPT */
 
 function tryAutoplay() {
 
@@ -939,7 +1240,6 @@ function tryAutoplay() {
 }
 
 
-
 document.addEventListener(
     "DOMContentLoaded",
     tryAutoplay
@@ -952,6 +1252,7 @@ window.addEventListener(
 );
 
 
+/* MUSIC BUTTON */
 
 musicButton.addEventListener(
     "click",
@@ -980,4 +1281,5 @@ musicButton.addEventListener(
 
 
 </body>
+
 </html>
